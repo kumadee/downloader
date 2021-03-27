@@ -14,7 +14,10 @@ var httpCmd = &cobra.Command{
 	Long:  `Download file over http(s).`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Download file:", url)
-		http.DownloadFile(destinationPath, url)
+		err := http.DownloadFile(destinationPath, url)
+		if err != nil {
+			fmt.Println(err.Error())
+		}
 	},
 }
 

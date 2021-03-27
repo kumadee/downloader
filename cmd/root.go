@@ -39,8 +39,15 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.http-downloader.yaml)")
 	rootCmd.PersistentFlags().StringVarP(&url, "url", "u", "", "Source url of the file")
 	rootCmd.PersistentFlags().StringVarP(&destinationPath, "destinationPath", "d", "", "target path of the file")
-	rootCmd.MarkPersistentFlagRequired("url")
-	rootCmd.MarkPersistentFlagRequired("destinationPath")
+	var err error
+	err = rootCmd.MarkPersistentFlagRequired("url")
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	err = rootCmd.MarkPersistentFlagRequired("destinationPath")
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
