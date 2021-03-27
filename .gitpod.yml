@@ -1,0 +1,10 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - command: |
+      gp env PIP_USER=false && \
+        export PIP_USER=false && \
+        echo "pre-commit install" && \
+        pre-commit install && \
+        go get github.com/spf13/cobra/cobra
