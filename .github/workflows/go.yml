@@ -47,7 +47,7 @@ jobs:
           path: downloader*
 
       - name: Run all tests and find code coverage
-        run: go test -v -bench . -benchmem -coverprofile=coverage.out ./...
+        run: go test -v -bench . -benchmem -coverprofile coverage.out ./...
       # - name: SonarCloud Scan
       #   uses: SonarSource/sonarcloud-github-action@v1.5
       #   env:
