@@ -39,12 +39,6 @@ jobs:
           # version of golangci-lint to use in form of v1.2 or v1.2.3 or `latest` to use the latest version
           version: latest
 
-      - name: Publish artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: downloader-${{ matrix.os }}
-          path: downloader*
-
       - name: Run all tests and find code coverage
         run: go test -v -bench . -benchmem -coverprofile coverage.out ./...
       # - name: SonarCloud Scan
