@@ -43,7 +43,7 @@ func DownloadFile(dirpath string, url string) error {
 	if err := os.MkdirAll(dirpath, 0755); err != nil {
 		return err
 	}
-	filepath := fmt.Sprintf(filepath.Join(dirpath, path.Base(url)))
+	filepath := filepath.Join(dirpath, path.Base(url))
 	// Create the file, but give it a tmp file extension, this means we won't overwrite a
 	// file until it's downloaded, but we'll remove the tmp extension once downloaded.
 	out, err := os.Create(filepath + ".tmp")

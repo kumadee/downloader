@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestDownloadFile(t *testing.T) {
@@ -21,7 +22,8 @@ func TestDownloadFile(t *testing.T) {
 		},
 	}
 	for _, tc := range cases {
-		DownloadFile(tc.path, tc.url)
+		err := DownloadFile(tc.path, tc.url)
+		require.NoError(t, err, tc.description)
 		assert.DirExists(t, tc.path, tc.description)
 		assert.FileExists(t, tc.expectedFile, tc.description)
 	}
