@@ -5,13 +5,13 @@ on:
     paths:
       - "**.go"
       - "sonar-project.properties"
-      - "go.yml"
+      - "**/go.yml"
   pull_request:
     branches: [main]
     paths:
       - "**.go"
       - "sonar-project.properties"
-      - "go.yml"
+      - "**/go.yml"
 
 jobs:
   build:
