@@ -9,6 +9,8 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - "go.mod"
+      - "go.sum"
       - "**.go"
       - "sonar-project.properties"
       - "**/go.yml"
